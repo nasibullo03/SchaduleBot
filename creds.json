@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "scheduletelebot",
+  "private_key_id": "c2e3cf96b113e5fb7c1534c0dc64bc1a0cbc8dc0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCxYjDWIoXHC/I8\n7Z/YUh6UjgQPWdzn1sY9CKxSVt2vO589M9e2dF1FD/j1bvqXfuSFS8+wdY/X1kNI\nMAOCZedtl47GdPiW0ZWlRocpfdTQZ3y1q8HQUz3UTZQnTv/DcE2XYpRe0EJIvk0C\nGHIzPojnnSctzmSHvkWD6xK9gnSyVxuZKKKpFsYQmvY2p7fVN+j1LZ0HmSIDa/Wd\nVoHMSE/n1cUcgSASD3BD6aCpqH6i7EZymoQMKCdSey6lDft+Peq/58qIId/lpYl8\niSXi9A1FMFq7arNBmKdjNm9MoMrluqvn9mAwWhIMWodP0foYLgkr5Y+6a5VepP7U\nLUnlbNHDAgMBAAECggEAA4xiS7ZPFMdBZkSeoPYrlG8u15vFloGuX4Qv5knEj3/S\n1KeX1heH0hzarxY0PxmTurLkibQgV4H6wJPtTgt50LBqc7/dRS8WHkNF6ueQfUbE\nsOGps+AmaXvPzeV/qkox0yhurWLfIJNl+PfCORI0LOXw5bKuQiTlQRlPu6jDatnY\ntScEiQBuHerxjFB7XqJGeEltRf9/sX3IxjEx+1lSFLTB+Hx/YX31i4yOhw6fcsZj\nTk7pXSg8b1xBUoeKuy0TVmJa4DTVTixY2a8TBEtlz+yBVnDBHHygsqAF3Jvj5LP5\nxDZ9kGHJ3NEjikSxt9qjrTNs1bshae6FiYzczshqWQKBgQDaye90Mo/Zgg6NILzn\n5FaT5eJGiPBExKvKKPgBrGB1aKoyTGwvRFNWp5h4+TlT2rNtSReNphGFnu8mXl3j\njMLUn3mTGbzxYO3TYM+qzx3ykD3/MNthtXat78Gx2M/Po3vTFnp0WUhrzQAOt9sB\nZb/EiifxRp5sUak2xoWKT/FfDQKBgQDPjXiCnvRyo9I5+ZjcOGssVWqqxM5qn4L/\nhfMRTMJHD+W6y7HE3qgs19rOVKCqzVTBl/4MD3dezWIcblq1lPXPvUsEWx6Ix/Vp\njlz7GmUFjgadW61IUpQr+g1Yw7sDWCQyzSNP1/n5UIl2K70siC6zk6lNxmhfUucv\numRPX1lADwKBgAfKtUpwGotmhFomVlPz39l4kGxuqA/q6StT9jEpEG5eAeG0sw2j\n40vswBNe3NnNqiI0PjB/P5SAqoe1SKa39qBX5Z6FhiMajp2+jubIZYqj9HFILif2\nrHlZVo6c6Bm++sPzwvytyVR9gokDpzsPgprfSLjhCPdWmS4oN81LN49pAoGAW4C2\nWXf0sznwK+kTcDtbXI9H2IOtsSoj2b1XPRBHMocas/Crreyv3h1H9OEweDzQGg2F\nThHfgacwkvJAAX/royuEECaP3qOxWVkPOxEW6o0D84oAajsl4gF6suCP6ViJlPAF\nmmTQaw8Lm1KLMz/Svw7hfE11pFjrXYpiQO/7bBcCgYBWePMVNRVkCe4I+Yjv6ejv\n1xAV+IvtLjzTWV7+DOyvOwSFo9V4kUMpFiTvUTn2amtGlNktx1Vvgnz23BB6RQLq\neMJThpAUQZ8/pOMCaPrr2NoLu9enjoRAq4kzxjjGGZ6mOe/q+10H8tLtMtysbQF1\nsQtacXv5dF14ec76c7hw0A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "account@scheduletelebot.iam.gserviceaccount.com",
+  "client_id": "116476006422974883037",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/account%40scheduletelebot.iam.gserviceaccount.com"
+}
