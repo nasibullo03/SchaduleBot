@@ -1,8 +1,9 @@
-from pprint import pprint
+from pprint import *
 from array import *
 from threading import Thread
 
 import week
+
 import httplib2
 import apiclient
 from apiclient import discovery
@@ -21,7 +22,7 @@ httpAuth = credentials.authorize(httplib2.Http())
 service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
 
 
-def GetTimesBySheetName(sheetName, range, arrayDirection="COLUMNS"):  
+def GetTimesBySheetName(sheetName, range, arrayDirection="COLUMNS"):
     return service.spreadsheets().values().get(
         spreadsheetId=spreadsheet_id,
         range=F'{sheetName}!{range}',
@@ -29,8 +30,20 @@ def GetTimesBySheetName(sheetName, range, arrayDirection="COLUMNS"):
     ).execute()
 
 
+def GetSchadule(sheetName, range, arrayDirection="COLUMNS"):
+    return service.spreadsheets().values().get(
+        spreadsheetId=spreadsheet_id,
+        range = F'{sheetName}!{range}',
+        majorDimension=arrayDirection
+    ).execute()
 
 
+
+
+
+
+    
+# pprint()
 
 # values = service.spreadsheets().values().batchUpdate(
 #     spreadsheetId=spreadsheet_id,
