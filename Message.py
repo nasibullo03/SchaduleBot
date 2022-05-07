@@ -1,6 +1,9 @@
 
 from array import array
+from concurrent.futures import thread
 from pprint import pprint
+import threading 
+
 
 from Schadule import Schadule
 from SchaduleTimes import listOfTimes
@@ -21,13 +24,9 @@ class MessageTypes(enum.Enum):
 def MakeText (listofSchadules):
     text = ''
     for list in range(len(listofSchadules)):
-        pprint(listofSchadules[list])
         text += F"{listofSchadules[list][0]}-{listofSchadules[list][1]} {listofSchadules[list][2]}\n"
-        
     return text;
     
-
-
 
 def MakeMassage(listofSchadules, MessageType):
 
@@ -214,5 +213,13 @@ class Send:
 
 
 WeekType.Set()
-print(Send.GetSchaduleByWeekName("first", "Четверг"))
+
+def ptin():
+    print(Send.GetSchaduleByWeekName("first", "Четверг"))
+
+th = threading.Thread(target=ptin, args=())
+th.start() 
+
+ 
+
 
