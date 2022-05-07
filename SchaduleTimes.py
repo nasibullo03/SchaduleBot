@@ -1,6 +1,6 @@
 from pprint import *
 import Range 
-import GetData 
+import Sheets 
 import week 
 # сегдняшный день
 todaysWeekName = week.Name.Today()
@@ -11,8 +11,6 @@ EndTimeRange = F'{Range._endTimeColName}{Range.startRangeId}:{Range._endTimeColN
 
 # массив всех время начало урока
 class listOfTimes:
-    Start = GetData.GetTimesBySheetName(todaysWeekName,StartTimeRange,"ROWS")
-    End =  GetData.GetTimesBySheetName(todaysWeekName,EndTimeRange,"ROWS")
-
-
-
+    Start = Sheets.GetTimesBySheetName(todaysWeekName,StartTimeRange,"ROWS")
+    End =  Sheets.GetTimesBySheetName(todaysWeekName,EndTimeRange,"ROWS")
+        

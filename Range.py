@@ -5,52 +5,48 @@ endRangeNum = 13
 _startTimeColName = 'A'
 _endTimeColName = 'B'
 
-
 def makeRange(col):
     return F'{col}{startRangeId}:{col}{endRangeNum}'
 
 # четная неделя
-
-
 class EvenWeek:
     _fistGroupColName = 'C'
     _secGroupColName = 'D'
 
     class FirstGroup:
     
-        def Range(self):
-            return self.makeRange(self._fistGroupColName)
-        def HoursRange(self, hour):
-            return F'{self._fistGroupColName}{HoursColumn.Id(hour)}'
+        def Range():
+            return makeRange(OddWeek._fistGroupColName)
+        def HoursRange(hour):
+            return F'{OddWeek._fistGroupColName}{HoursColumn.Id(hour)}'
 
     class SecondGroup:
-        def Range(self):
-            return self.makeRange(self._secGroupColName)
-        def HoursRange(self, hour):
-            return F'{self._secGroupColName}{HoursColumn.Id(hour)}'
+        def Range():
+            return makeRange(OddWeek._secGroupColName)
+        def HoursRange(hour):
+            return F'{OddWeek._secGroupColName}{HoursColumn.Id(hour)}'
     
 
 # нечетная неделя
-
-
 class OddWeek:
-    fistGroupColumn = 'E'
-    secondGroupColumn = 'F'
+    _fistGroupColName = 'E'
+    _secGroupColName = 'F'
     
     class FirstGroup:
         
-        def Range(self):
-            return self.makeRange(self._fistGroupColName)
-        def HoursRange(self, hour):
-            return F'{self._fistGroupColName}{HoursColumn.Id(hour)}'
+        def Range():
+            return makeRange(OddWeek._fistGroupColName)
+        def HoursRange(hour):
+            return F'{OddWeek._fistGroupColName}{HoursColumn.Id(hour)}'
 
     class SecondGroup:
-        def Range(self):
-            return self.makeRange(self._secGroupColName)
-        def HoursRange(self, hour):
-            return F'{self._secGroupColName}{HoursColumn.Id(hour)}'
+        def Range():
+            return makeRange(OddWeek._secGroupColName)
+        def HoursRange(hour):
+            return F'{OddWeek._secGroupColName}{HoursColumn.Id(hour)}'
 
 
 class HoursColumn:
     def Id(hour):
         return hour + startRangeId
+

@@ -9,8 +9,10 @@ weekDaysArray = [
     'Среда',
     'Четверг',
     'Пятница',
-    'Суббота'
+    'Суббота',
+    'Воскресение'
 ]
+
 
 KemSU_SchadulePageUrl = 'https://kemsu.ru/education/schedule/'
 
