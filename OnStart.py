@@ -25,6 +25,13 @@ def SendWithTimer(timersValue, lessons_hour):
     message_Text = Send.SchaduleByHours('first', week.Name.Today(), lessons_hour)
     if message_Text != 'empty':
         print(message_Text)
+        
+def SendWithTimer_10MinutBefore(timersValue, lessons_hour):
+    time.sleep(timersValue)
+    # 
+    message_Text = Send.SchaduleByHours('first', week.Name.Today(), lessons_hour)
+    if message_Text != 'empty':
+        print(message_Text)
 
 
 def StartTimer():
@@ -60,13 +67,25 @@ def StartTimer():
         if listOfTimesInSecond[time_value] < 0:
             continue
         if LessonsTimesList[time_value][0] > currentTime[0]:
+            time_sleep = listOfTimesInSecond[time_value]
+            if time_sleep-10*60>=0:
+                th2 = threading.Thread(target=SendWithTimer_10MinutBefore, args=(
+                time_sleep, time_value+1))
+                th2.start()
+            
             th = threading.Thread(target=SendWithTimer, args=(
-                listOfTimesInSecond[time_value], time_value+1))
+                time_sleep, time_value+1))
             th.start()
+            
         elif LessonsTimesList[time_value][0] == currentTime[0]:
             if LessonsTimesList[time_value][1] >= currentTime[1]:
+                time_sleep = listOfTimesInSecond[time_value]
+                if time_sleep-10*60>=0:
+                    th2 = threading.Thread(target=SendWithTimer_10MinutBefore, args=(
+                    time_sleep, time_value+1))
+                    th2.start()
                 th = threading.Thread(target=SendWithTimer, args=(
-                    listOfTimesInSecond[time_value], time_value))
+                    time_sleep, time_value))
                 th.start()
 
 
@@ -110,8 +129,6 @@ def UpdatingDatas():
             th.start()
             
             
-
-
 Start()
 threadingTask = threading.Thread(target=UpdatingDatas, args=())
 threadingTask.start()
