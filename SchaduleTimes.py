@@ -11,6 +11,13 @@ EndTimeRange = F'{Range._endTimeColName}{Range.startRangeId}:{Range._endTimeColN
 
 # массив всех время начало урока
 class listOfTimes:
-    Start = Sheets.GetTimesBySheetName(todaysWeekName,StartTimeRange,"ROWS")
-    End =  Sheets.GetTimesBySheetName(todaysWeekName,EndTimeRange,"ROWS")
-        
+    Start = []
+    End =  []
+    StartTimesArray = [[3,27], [3, 28], [3, 29], [3, 30], [3, 31], [3, 35]]
+    def GetValues():
+      listOfTimes.Start = Sheets.GetTimesBySheetName('Понедельник',StartTimeRange,"ROWS")
+      listOfTimes.End = Sheets.GetTimesBySheetName('Понедельник',EndTimeRange,"ROWS")
+      # for time in range(len(listOfTimes.Start['values'])):
+      #     time_temp =  listOfTimes.Start['values'][time][0].split('.')
+      #     listOfTimes.StartTimesArray.append([int(time_temp[0]),int(time_temp[1])])
+  

@@ -2,8 +2,6 @@ from pprint import *
 from array import *
 from threading import Thread
 
-import week
-
 import httplib2
 import apiclient
 from apiclient import discovery

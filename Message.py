@@ -1,6 +1,4 @@
-
 from array import array
-from concurrent.futures import thread
 from pprint import pprint
 import threading 
 
@@ -12,14 +10,12 @@ from Check import WeekType
 import week
 import enum
 
-
 class MessageTypes(enum.Enum):
     Today = 0
     Tomorrow = 1
     ByWeekDay = 2
     ByHour = 3
     Now = 4
-
 
 def MakeText (listofSchadules):
     text = ''
@@ -52,7 +48,7 @@ def MakeMassage(listofSchadules, MessageType):
             return MakeText(listofSchadules)
     elif MessageType == MessageTypes.ByHour:
         if listofSchadules == []:
-            return "В этот время нет рассписание"
+            return "empty"
         else :
             return MakeText(listofSchadules)
         
@@ -62,7 +58,7 @@ def MakeMassage(listofSchadules, MessageType):
 
 def ProcessingSchadule(_schaduleList, MessageType):
     arraySchadule = []
-    for list in range(len(_schaduleList[0])):
+    for list in range(len(_schaduleList[2])):
         if _schaduleList[2][list][0] != 'empty':
             arraySchadule.append(
                 [
@@ -72,7 +68,6 @@ def ProcessingSchadule(_schaduleList, MessageType):
                 ]
             )
     return MakeMassage(arraySchadule, MessageType)
-
 
 class Send:
 
@@ -211,15 +206,17 @@ class Send:
                             'values']
                     ], MessageTypes.ByHour)
 
+# WeekType.Set()
+# listOfTimes.GetValues();
+# def ptin():
+# print(Schadule.EvenWeek.FirstGroup.SchaduleByHours('Понедельник',0)[
+                            # 'values'])
 
-WeekType.Set()
+# for i in range(5):
+#     print(F"Start({i})")
+#     th = threading.Thread(target=ptin, args=())
+#     th.start()
+#     th.join()
 
-def ptin():
-    print(Send.GetSchaduleByWeekName("first", "Четверг"))
-
-th = threading.Thread(target=ptin, args=())
-th.start() 
-
- 
 
 

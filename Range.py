@@ -16,15 +16,15 @@ class EvenWeek:
     class FirstGroup:
     
         def Range():
-            return makeRange(OddWeek._fistGroupColName)
+            return makeRange(EvenWeek._fistGroupColName)
         def HoursRange(hour):
-            return F'{OddWeek._fistGroupColName}{HoursColumn.Id(hour)}'
+            return F'{EvenWeek._fistGroupColName}{HoursColumn.Id(hour)}'
 
     class SecondGroup:
         def Range():
-            return makeRange(OddWeek._secGroupColName)
+            return makeRange(EvenWeek._secGroupColName)
         def HoursRange(hour):
-            return F'{OddWeek._secGroupColName}{HoursColumn.Id(hour)}'
+            return F'{EvenWeek._secGroupColName}{HoursColumn.Id(hour)}'
     
 
 # нечетная неделя
