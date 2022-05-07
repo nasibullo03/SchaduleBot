@@ -13,7 +13,7 @@ EndTimeRange = F'{Range._endTimeColName}{Range.startRangeId}:{Range._endTimeColN
 class listOfTimes:
     Start = []
     End =  []
-    StartTimesArray = [[3,27], [3, 28], [3, 29], [3, 30], [3, 31], [3, 35]]
+    StartTimesArray = [[5,15], [5, 16], [5, 17], [5,18], [5, 19], [5, 20]]
     def GetValues():
       listOfTimes.Start = Sheets.GetTimesBySheetName('Понедельник',StartTimeRange,"ROWS")
       listOfTimes.End = Sheets.GetTimesBySheetName('Понедельник',EndTimeRange,"ROWS")
