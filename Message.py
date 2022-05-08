@@ -1,7 +1,6 @@
 from array import array
 from pprint import pprint
 import threading
-
 from Schadule import Schadule
 from SchaduleTimes import listOfTimes
 from Check import WeekType
@@ -21,7 +20,7 @@ class MessageTypes(enum.Enum):
 def MakeText(listofSchadules):
     text = ''
     for list in range(len(listofSchadules)):
-        text += F"{listofSchadules[list][0]}-{listofSchadules[list][1]} {listofSchadules[list][2]}\n"
+        text += F"<u>{listofSchadules[list][0]}-{listofSchadules[list][1]}</u> <b><i>{listofSchadules[list][2]}</i></b>\n"
     return text
 
 
@@ -53,10 +52,6 @@ def MakeMassage(listofSchadules, MessageType):
         else:
             return MakeText(listofSchadules)
 
-    # if listofSchadules == []:
-    #     return "У вас нет расписание"
-
-
 def ProcessingSchadule(_schaduleList, MessageType, hour=0):
     arraySchadule = []
     if MessageType == MessageTypes.ByHour:
@@ -81,7 +76,6 @@ def ProcessingSchadule(_schaduleList, MessageType, hour=0):
                 ]
             )
     return MakeMassage(arraySchadule, MessageType)
-
 
 class Send:
 
@@ -228,6 +222,8 @@ class Send:
         else:
             return 'empty'
 
+    def ThisWeekType():
+        return F'Согласно данным с сайта <a href="{week.KemSU_SchadulePageUrl}">КемГУ</a>, текущая неделя <b>{WeekType.GetFromKemsu()}</b>'
 
 # WeekType.Set()
 # listOfTimes.GetValues()

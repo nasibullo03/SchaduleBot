@@ -17,7 +17,6 @@ class listOfTimes:
     def GetValues():
       listOfTimes.Start = Sheets.GetTimesBySheetName('Понедельник',StartTimeRange,"ROWS")
       listOfTimes.End = Sheets.GetTimesBySheetName('Понедельник',EndTimeRange,"ROWS")
-      pprint(listOfTimes.Start)
       listOfTimes.StartTimesArray = []
       for time in range(len(listOfTimes.Start['values'])):
           time_temp =  listOfTimes.Start['values'][time][0].split('.')

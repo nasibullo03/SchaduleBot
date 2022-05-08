@@ -76,6 +76,8 @@ def StartTimer():
             th = threading.Thread(target=SendWithTimer, args=(
                 time_sleep, time_value+1))
             th.start()
+            pprint(F'Message would be sent after {int(time_sleep/3600)}:{int(time_sleep%3600/60)}')
+            
             
         elif LessonsTimesList[time_value][0] == currentTime[0]:
             if LessonsTimesList[time_value][1] >= currentTime[1]:
@@ -87,6 +89,7 @@ def StartTimer():
                 th = threading.Thread(target=SendWithTimer, args=(
                     time_sleep, time_value))
                 th.start()
+                pprint(F'Message would be sent after {int(time_sleep/3600)}:{int(time_sleep%3600/60)}')
 
 
 def UpdatingDatas():
@@ -106,7 +109,7 @@ def UpdatingDatas():
                 Start()
                 th = threading.Thread(target=StartTimer, args=())
                 print(
-                    F'Thread started at {currentTimeInSecond} and would be at sleep ({s_time})')
+                F'Thread started at {currentTimeInSecond} and would be at sleep after ({int(s_time/3600)}:{int(s_time% 3600/60)}) hour')
                 th.start()
 
                 
@@ -116,7 +119,7 @@ def UpdatingDatas():
             th.start()
             s_time = updateTimeInSecond - currentTimeInSecond
             print(
-                F'Thread started at {currentTimeInSecond} and would be at sleep ({s_time})')
+                F'Thread started at {currentTimeInSecond} and would be at sleep after({int(s_time/3600)}:{int(s_time% 3600/60)} hour)')
             time.sleep(s_time)
             
         else:
@@ -125,7 +128,7 @@ def UpdatingDatas():
             Start()
             th = threading.Thread(target=StartTimer, args=())
             print(
-                F'Thread started at {currentTimeInSecond} and would be at sleep ({s_time})')
+                F'Thread started at {currentTimeInSecond} and would be at sleep after ({int(s_time/3600)}:{int(s_time% 3600/60)}) hour')
             th.start()
             
 def StartThreading():
@@ -135,8 +138,8 @@ def StartThreading():
     print("Всех фоновых задач остановились")         
 
 Start()
-OnStartThread=threading.Thread(target=StartThreading, args=())
-OnStartThread.start()
+# OnStartThread=threading.Thread(target=StartThreading, args=())
+# OnStartThread.start()
 # StartTimer()
 # pprint(listOfTimes.StartTimesArray)
 # pprint(listOfTimes.StartTimesArray)
