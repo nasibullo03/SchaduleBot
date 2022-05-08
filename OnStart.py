@@ -8,9 +8,9 @@ import threading
 
 
 def Start():
-    listOfTimes.GetValues()
     WeekType.Set()
-
+    listOfTimes.GetValues()
+    
 
 def GetTimeNow():
     t = time.localtime()
@@ -128,15 +128,15 @@ def UpdatingDatas():
                 F'Thread started at {currentTimeInSecond} and would be at sleep ({s_time})')
             th.start()
             
-            
+def StartThreading():
+    threadingTask = threading.Thread(target=UpdatingDatas, args=())
+    threadingTask.start()
+    threadingTask.join()
+    print("Всех фоновых задач остановились")         
+
 Start()
-threadingTask = threading.Thread(target=UpdatingDatas, args=())
-threadingTask.start()
-threadingTask.join()
-print("Всех фоновых задач остановились")
-
-
+OnStartThread=threading.Thread(target=StartThreading, args=())
+OnStartThread.start()
 # StartTimer()
-
 # pprint(listOfTimes.StartTimesArray)
 # pprint(listOfTimes.StartTimesArray)

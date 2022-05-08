@@ -25,8 +25,8 @@ def MakeText(listofSchadules):
     return text
 
 
-def MakeMassage(listofSchadules, MessageType):
 
+def MakeMassage(listofSchadules, MessageType):
     if MessageType == MessageTypes.Today:
         if listofSchadules == []:
             return "Сегодня у вас нет расписание"
@@ -105,7 +105,7 @@ class Send:
                             'values']
                     ], MessageTypes.Today
                     )
-            elif WeekType.Get() == "четная":
+            elif WeekType.Get() == "нечетная":
                 if group == "first":
                     return ProcessingSchadule([
                         listOfTimes.Start['values'],
@@ -121,7 +121,7 @@ class Send:
                             'values']
                     ], MessageTypes.Today)
         else:
-            return 'empty'
+            return 'Сегодня у вас нет расписание'
 
     def TommorowsSchadule(group):
         if week.Name.Tomorrow() != "Воскресение":
@@ -156,11 +156,11 @@ class Send:
                             'values']
                     ], MessageTypes.Tomorrow)
         else:
-            return 'empty'
+            return 'Завтра у вас нет расписание'
 
-    def GetSchaduleByWeekName(group, weekName):
+    def GetSchaduleByWeekName(group, weekName, weekType):
         if weekName != "Воскресение":
-            if WeekType.Get() == "четная":
+            if weekType == "четная":
                 if group == "first":
                     return ProcessingSchadule([
                         listOfTimes.Start['values'],
@@ -175,7 +175,7 @@ class Send:
                         Schadule.EvenWeek.SecondGroup.GetSchaduleByWeekName(weekName)[
                             'values']
                     ], MessageTypes.ByWeekDay)
-            elif WeekType.Get() == "нечетная":
+            elif weekType == "нечетная":
                 if group == "first":
                     return ProcessingSchadule([
                         listOfTimes.Start['values'],
@@ -191,7 +191,7 @@ class Send:
                             'values']
                     ], MessageTypes.ByWeekDay)
         else:
-            return 'empty'
+            return 'У вас нет расписание в этот день'
 
     def SchaduleByHours(group, weekName, hour):
         if weekName != "Воскресение":
@@ -229,10 +229,12 @@ class Send:
             return 'empty'
 
 
-WeekType.Set()
-listOfTimes.GetValues()
-# def ptin():
-print(Send.SchaduleByHours('first', 'Понедельник', 0))
+# WeekType.Set()
+# listOfTimes.GetValues()
+
+# pprint(Send.TodaysSchadule('first'))
+# pprint(week.Name.Today())
+# print(WeekType.Get())
 # 'values'])
 
 # for i in range(5):
