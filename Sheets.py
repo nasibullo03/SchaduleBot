@@ -59,7 +59,6 @@ def SetUsersData(range, values, arrayDirection="COLUMNS"):
         }
 
     ).execute()
-    pprint(values)
     
 
 # values = service.spreadsheets().values().batchUpdate(
@@ -82,5 +81,3 @@ def SetUsersData(range, values, arrayDirection="COLUMNS"):
 
 #     ).execute()
 
-
-# pprint(GetUsersData('A1')['values'])
