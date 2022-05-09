@@ -1,5 +1,4 @@
 from pprint import pprint
-from time import sleep
 import telebot
 from telebot import types
 import config
@@ -7,6 +6,7 @@ from Message import Send
 import threading
 from Check import WeekType
 from Check import UsersData
+
 
 bot = telebot.TeleBot(config.TOKEN)
 
@@ -92,7 +92,6 @@ def bot_message(message):
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         markup.add("Показать расписание")
         markup.add("Изменить подгруппу")
-        pprint(UsersData.GetNotificationAccept(chatId))
         if UsersData.GetNotificationAccept(chatId)=='yes':
             markup.add("Отключить уведомление")
         elif UsersData.GetNotificationAccept(chatId)=='no':    
@@ -187,83 +186,5 @@ def bot_message(message):
         markup.add('Четверг', 'Пятница', 'Суббота')
         markup.add('Главное меню')
         bot.send_message(message.chat.id, "Выберите день", reply_markup=markup)
-#     # кнопка первая подгруппа
-#     if message.text == 'Первая подгруппа':
-#         UsersData.CheckGroupType(message.chat.id,'first')
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add('Четная', 'Нечетная')
-#         markup.add('Текущая неделя')
-#         markup.add('Главное меню')
-#         bot.send_message(message.chat.id, "Выберите неделю",
-#                          reply_markup=markup)
-# # Кнопка Главное меню
-#     elif message.text == 'Главное меню':
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add("Первая подгруппа")
-#         markup.add("Вторая подгруппа")
-#         bot.send_message(message.chat.id, "{0.first_name}!, Вы вернулись в главное меню".format(
-#             message.from_user), reply_markup=markup)
-# # Кнопка Вторая подгруппа
-#     elif message.text == 'Вторая подгруппа':
-#         UsersData.CheckGroupType(message.chat.id,'second')
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add('Четная', 'Нечетная')
-#         markup.add('Текущая неделя')
-#         markup.add('Главное меню')
-#         bot.send_message(message.chat.id, "Выберите неделю",
-#                          reply_markup=markup)
-# # Четная неделя первая подгруппа
-#     elif message.text == 'Четная':
-#         UsersData.CheckWeekType(message.chat.id,'четная')
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add('Расписание на сегодня')
-#         markup.add('Расписание на завтра')
-#         markup.add('Другой день')
-#         markup.add('Главное меню')
-#         bot.send_message(message.chat.id, "Выберите день", reply_markup=markup)
-# # Нечетная неделя первая подгруппа
-#     elif message.text == 'Нечетная':
-#         UsersData.CheckWeekType(message.chat.id,'нечетная')
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add('Расписание на сегодня')
-#         markup.add('Расписание на завтра')
-#         markup.add('Другой день')
-#         markup.add('Главное меню')
-#         bot.send_message(message.chat.id, "Выберите день", reply_markup=markup)
-# # Другой день, первая подгруппа, Четная неделя
-#     elif message.text == 'Другой день':
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add('Понедельник', 'Вторник', 'Среда')
-#         markup.add('Четверг', 'Пятница', 'Суббота')
-#         markup.add('Главное меню')
-#         bot.send_message(message.chat.id, "Выберите день", reply_markup=markup)
-
-#     # обработка текст пользователья для отправки рассписание
-#     elif 'Расписание на сегодня' in textFromUser:
-#         SendTodaysSchadule(chatId)
-#     elif 'Расписание на завтра' in textFromUser:
-#         SendTomorrowsSchadule(chatId)
-#     elif 'Понедельник' in textFromUser:
-#         SendSchaduleByWeekName(chatId, 'Понедельник')
-#     elif 'Вторник' in textFromUser:
-#         SendSchaduleByWeekName(chatId, 'Вторник')
-#     elif 'Среда' in textFromUser:
-#         SendSchaduleByWeekName(chatId, 'Среда')
-#     elif 'Четверг' in textFromUser:
-#         SendSchaduleByWeekName(chatId, 'Четверг')
-#     elif 'Пятница' in textFromUser:
-#         SendSchaduleByWeekName(chatId, 'Пятница')
-#     elif 'Суббота' in textFromUser:
-#         SendSchaduleByWeekName(chatId, 'Суббота')
-
-#     elif 'Текущая неделя' in textFromUser:
-#         UsersData.CheckWeekType(message.chat.id,WeekType.Get())
-#         bot.send_message(chatId, Send.ThisWeekType(), parse_mode="HTML")
-#         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-#         markup.add('Расписание на сегодня')
-#         markup.add('Расписание на завтра')
-#         markup.add('Другой день')
-#         markup.add('Главное меню')
-#         bot.send_message(message.chat.id, "Выберите день", reply_markup=markup)
 
 bot.polling(none_stop=True)

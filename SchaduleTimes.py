@@ -21,7 +21,6 @@ class listOfTimes:
       for time in range(len(listOfTimes.Start['values'])):
           time_temp =  listOfTimes.Start['values'][time][0].split('.')
           listOfTimes.StartTimesArray.append([int(time_temp[0]),int(time_temp[1])])
-      # pprint(listOfTimes.StartTimesArray)
   
 
 

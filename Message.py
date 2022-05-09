@@ -201,7 +201,7 @@ class Send:
                     return ProcessingSchadule([
                         listOfTimes.Start['values'],
                         listOfTimes.End['values'],
-                        Schadule.EvenWeek.SecondGroup.GetTomorrowsSchadule()[
+                        Schadule.EvenWeek.SecondGroup.SchaduleByHours(weekName, hour)[
                             'values']
                     ], MessageTypes.ByHour, hour)
             elif WeekType.Get() == "нечетная":
@@ -209,14 +209,14 @@ class Send:
                     return ProcessingSchadule([
                         listOfTimes.Start['values'],
                         listOfTimes.End['values'],
-                        Schadule.OddWeek.FirstGroup.GetTomorrowsSchadule()[
+                        Schadule.OddWeek.FirstGroup.SchaduleByHours(weekName, hour)[
                             'values']
                     ], MessageTypes.ByHour, hour)
                 else:
                     return ProcessingSchadule([
                         listOfTimes.Start['values'],
                         listOfTimes.End['values'],
-                        Schadule.OddWeek.SecondGroup.GetTomorrowsSchadule()[
+                        Schadule.OddWeek.FirstGroup.SchaduleByHours(weekName, hour)()[
                             'values']
                     ], MessageTypes.ByHour, hour)
         else:

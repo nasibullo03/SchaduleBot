@@ -31,8 +31,15 @@ class UsersData:
     def GetUsersData():
         return Sheets.GetUsersData('A:B')['values']
     
-    def GetUserIsAndWeekType():
+    def GetUserIdAndWeekType():
         return [Sheets.GetUsersData('A:A')['values'][0],Sheets.GetUsersData('I:I')['values'][0]]
+    
+    def GetUserIdUserGroupAndNotification():
+        return [
+            Sheets.GetUsersData('A:A')['values'][0],
+            Sheets.GetUsersData('B:B')['values'][0],
+            Sheets.GetUsersData('J:J')['values'][0]
+            ]
     
     def SetUsersData(range,values):
         Sheets.SetUsersData(range, values)
@@ -62,7 +69,7 @@ class UsersData:
                     UsersData.AddGroupType(groupType, id+1)
     
     def CheckWeekType(chatId,weekType):
-        usersData = UsersData.GetUserIsAndWeekType()
+        usersData = UsersData.GetUserIdAndWeekType()
         for id in range(len(usersData[0])):
             if id == 0:
                 continue
@@ -88,7 +95,7 @@ class UsersData:
                 return Sheets.GetUsersData(F'J{id+1}')['values'][0][0]
     
     def GetUserChousedWeekType(chatId):
-        UsersData1 = UsersData.GetUserIsAndWeekType()
+        UsersData1 = UsersData.GetUserIdAndWeekType()
         for id in range(len(UsersData1[0])):
                 if UsersData1[0][id] == str(chatId) :
                     return UsersData1[1][id]
